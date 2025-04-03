@@ -1,0 +1,7 @@
+llama-cpp-python 
+fastapi 
+uvicorn 
+streamlit 
+requests
+huggingface-hub
+#streamlit-chat
