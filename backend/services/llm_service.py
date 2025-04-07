@@ -23,10 +23,21 @@ def run_llama_inference(prompt: str) -> str:
     문장 요약 / 리뷰 생성	256 ~ 512
     기사/블로그 생성	512 ~ 1024 이상
     """
+
     messages = [
-        {"role": "system", "content": "당신은 한국어로 자연스럽고 유익한 답변을 제공하는 챗봇입니다. 대화의 맥락을 이해하고, 질문에 대한 정확한 답변을 제공하세요. 대화의 흐름을 유지하며, 사용자의 질문에 친절하게 답변하세요. 답변은 한국어로 하세요"},
+        {
+            "role": "system",
+            "content": (
+                "당신은 한국어로 자연스러우며 유익하고 친절한 답변을 제공하는 AI 챗봇입니다."
+                "사용자의 질문 의도와 맥락을 정확히 파악하고, 구체적이고 명확한 정보를 제공하세요."
+                "간결하게 핵심을 전달하면서도 사용자가 이해하기 쉬운 예시나 추가 정보를 포함해 답변하세요."
+                "필요하다면 친근한 어투를 활용하여 사용자와 자연스러운 대화를 이어가세요."
+                "모든 답변은 한국어로 작성되어야 합니다."
+            )
+        },
         {"role": "user", "content": prompt}
     ]
+
     # response = llm(prompt, max_tokens=200)
     response = llm.create_chat_completion(messages=messages, max_tokens=256)
     return response["choices"][0]["message"]["content"].strip()

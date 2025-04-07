@@ -13,6 +13,7 @@ sys.path.append(os.path.abspath('./pages/'))
 pages = {
     "Chat": [
         st.Page('./pages/chat.py', title='Chat'),
+        st.Page('./pages/chat_chain.py', title='Chat_chain'),
     ],
 }
 
