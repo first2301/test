@@ -14,7 +14,13 @@ def chat_with_bot(message, history):
     user_icon = "🙋‍♂️"
     ai_icon = "🤖"
 
-    system_prompt = "당신은 친절한 AI 챗봇입니다.\n"
+    system_prompt = """당신은 한국어로 자연스러우며 유익하고 친절한 답변을 제공하는 AI 챗봇입니다. \n
+                사용자의 질문 의도와 맥락을 정확히 파악하고, 구체적이고 명확한 정보를 제공하세요. \n
+                간결하게 핵심을 전달하면서도 사용자가 이해하기 쉬운 예시나 추가 정보를 포함해 답변하세요. \n
+                필요하다면 친근한 어투를 활용하여 사용자와 자연스러운 대화를 이어가세요. \n
+                모든 답변은 한국어로 작성되어야 합니다.\n
+                답변을 순서대로 알려주어야 하는 경우, 불릿포인트 또는 번호를 사용해서 답변하세요.\n
+                """
     chat_history = ""
     for human, ai in history:
         chat_history += f"사용자: {human}\nAI: {ai}\n"
@@ -33,7 +39,7 @@ def chat_with_bot(message, history):
 
     # 메시지 HTML 포맷
     user_msg = f"{user_icon} <b>사용자:</b><br>{message}"
-    formatted_response = f"{ai_icon} <b>AI:</b><br>• " + "<br>• ".join(bot_response.split("\n"))
+    formatted_response = f"{ai_icon} <b>AI:</b><br>{bot_response}"
     
     history.append((user_msg, formatted_response))
     return "", history, history
