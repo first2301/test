@@ -17,9 +17,9 @@ from langchain_community.vectorstores import FAISS
 class RAGMultiSourceChatbotService:
     def __init__(self, model_path: str):
         self.embedding_model = HuggingFaceEmbeddings(
-            model_name="BM-K/KoSimCSE-roberta",
+            model_name="../../ai_models/BM-K/KoSimCSE-roberta",
             # model_name="BM-K/KoSimCSE-roberta",
-            model_kwargs={"device": "cpu"},
+            model_kwargs={"device": "cpu", "local_files_only": True},
         )
 
         self.llm = LlamaCpp(

@@ -6,6 +6,8 @@ from services.rag_multisource_chatbot import RAGMultiSourceChatbotService
 
 router = APIRouter()
 
+MODEL_PATH = "../../ai_models/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M.gguf"
+
 @router.post("/generate")# generate
 async def generate_text(request: QueryRequest):
     """프롬프트 받아서 응답 생성"""
@@ -23,7 +25,7 @@ async def generate_text(request: QueryRequest):
     질문 받아서 LLM + 문서 기반으로 응답 생성
     """
     
-    chatbot = RAGMultiSourceChatbotService(model_path="../ai_models/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M.gguf")
+    chatbot = RAGMultiSourceChatbotService(model_path=MODEL_PATH)
     chatbot.load_sources(source_path=CSV_PATH)
     output = chatbot.ask(request.prompt)
     return {"response": output}
