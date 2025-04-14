@@ -5,4 +5,7 @@ streamlit
 huggingface-hub
 langchain-community
 gradio
+sentence-transformers
+faiss-cpu
+
 #streamlit-chat
