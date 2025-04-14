@@ -2,7 +2,8 @@ from llama_cpp import Llama
 import os
 
 # filename = "../ai_models/Phi-4-mini-instruct-GGUF/Phi-4-mini-instruct-Q8_0.gguf" #모델이 저장된 경로
-filename = "../ai_models/Meta-Llama-3-8B-Instruct-GGUF/Meta-Llama-3-8B-Instruct-Q8_0.gguf" #모델이 저장된 경로
+# filename = "../ai_models/Meta-Llama-3-8B-Instruct-GGUF/Meta-Llama-3-8B-Instruct-Q8_0.gguf" #모델이 저장된 경로
+filename = "../ai_models/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M.gguf"
 
 #만약 다운로드 받은 모델이 현재 작업 경로에 있다면 아래와 같이 사용가능.
 # llm = Llama(model_path=os.path.join(local_dir, filename))
