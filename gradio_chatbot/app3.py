@@ -1,8 +1,8 @@
 import gradio as gr
 import requests
 
-# API_URL = "http://localhost:8000/generate"  # FastAPI 실행 중인 주소
-API_URL = "http://localhost:8000/generate_rag"  # FastAPI 실행 중인 주소
+API_URL = "http://localhost:8000/generate"  # FastAPI 실행 중인 주소
+# API_URL = "http://localhost:8000/generate_rag"  # FastAPI 실행 중인 주소
 
 def chat_with_api(message, history):
     try:

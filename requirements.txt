@@ -7,5 +7,5 @@ langchain-community
 gradio
 sentence-transformers
 faiss-cpu
-
+unstructured[all-docs]
 #streamlit-chat
