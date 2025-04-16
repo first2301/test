@@ -2,13 +2,15 @@ import glob
 from fastapi import APIRouter, HTTPException
 from models.request_model import QueryRequest
 from services.bllossom_service import ChatbotService
-from services.rag_multisource_chatbot import RAGMultiSourceChatbotService
+# from services.rag_multisource_chatbot import RAGMultiSourceChatbotService
 from services.rag_service import RagChatbotService
+from services.rag_from_vectorstore_service import RagChatbotService
 
 router = APIRouter()
 
 LLM_MODEL_PATH = "../ai_models/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M/llama-3.2-Korean-Bllossom-3B-gguf-Q4_K_M.gguf"
 EMBEDDING_MODEL_PATH = "../ai_models/intfloat/multilingual-e5-large-instruct"  # 또는 로컬 모델 경로
+VECTORSTORE_PATH = "../vectorstore/faiss_index" 
 
 @router.post("/generate")# generate
 async def generate_text(request: QueryRequest):
@@ -39,6 +41,18 @@ async def generate_text(request: QueryRequest):
     output = chatbot.chat(request.prompt)
     
     return {"response": output}
+
+@router.post("/generate_rag_from_vectorstore")
+def chat_api(request: QueryRequest):
+    chatbot = RagChatbotService(
+    model_path=LLM_MODEL_PATH,
+    embedding_model_path=EMBEDDING_MODEL_PATH
+    )
+    chatbot.load_vectorstore(VECTORSTORE_PATH)
+    chatbot.build_rag_chain()
+    response = chatbot.chat(request.prompt)
+    return {"response": response}
+
 
 
 # CSV_PATH = glob.glob('../data/*.csv')
