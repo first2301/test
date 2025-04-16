@@ -8,4 +8,5 @@ gradio
 sentence-transformers
 faiss-cpu
 unstructured[all-docs]
+langchain_huggingface
 #streamlit-chat

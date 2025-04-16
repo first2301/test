@@ -1,8 +1,8 @@
 import gradio as gr
 import requests
 
-API_URL = "http://localhost:8000/generate"  # FastAPI 실행 중인 주소
-# API_URL = "http://localhost:8000/generate_rag"  # FastAPI 실행 중인 주소
+# API_URL = "http://localhost:8000/generate"  # FastAPI 실행 중인 주소
+API_URL = "http://localhost:8000/generate_rag"  # FastAPI 실행 중인 주소
 
 def chat_with_api(message, history):
     try:
@@ -10,7 +10,7 @@ def chat_with_api(message, history):
         response = requests.post(
             API_URL,
             json={"prompt": message},
-            timeout=30  # LLM 처리 시간 대비 넉넉히
+            #timeout=60  # LLM 처리 시간 대비 넉넉히
         )
 
         response.raise_for_status()
