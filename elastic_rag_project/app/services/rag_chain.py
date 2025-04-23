@@ -1,7 +1,7 @@
 from langchain.chains import RetrievalQA
-from app.services.vector_store import get_vector_store
+from services.vector_store import get_vector_store
 from langchain_community.llms import LlamaCpp
-from app.utils.config import MODEL_PATH
+from utils.config import MODEL_PATH
 import multiprocessing
 
 def get_rag_chain():
