@@ -9,4 +9,5 @@ sentence-transformers
 faiss-cpu
 unstructured[all-docs]
 langchain_huggingface
+langchain-elasticsearch
 #streamlit-chat

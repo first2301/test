@@ -3,7 +3,8 @@ import requests
 
 # API_URL = "http://localhost:8000/generate"  
 # API_URL = "http://localhost:8000/generate_rag"  
-API_URL = "http://localhost:8000/generate_rag_from_vectorstore"  
+# API_URL = "http://localhost:8000/generate_rag_from_vectorstore"  
+API_URL = "http://localhost:8080/chat"  
 
 
 
@@ -12,7 +13,8 @@ def chat_with_api(message, history):
         # FastAPI로 POST 요청 보내기
         response = requests.post(
             API_URL,
-            json={"prompt": message},
+            # json={"prompt": message},
+            json={"question": message}, # elastic_rag
             #timeout=60  # LLM 처리 시간 대비 넉넉히
         )
 
