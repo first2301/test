@@ -17,5 +17,11 @@ def get_rag_chain():
         verbose=True
     )
     vector_store = get_vector_store()
-    retriever = vector_store.as_retriever()
-    return RetrievalQA(llm=llm, retriever=retriever)
+    
+    retriever = vector_store.as_retriever(search_type="similarity_score_threshold", search_kwargs={"score_threshold": 0.2})
+    rag_chain = RetrievalQA.from_chain_type(
+    llm=llm,                     # llama-cpp나 OpenAI 등 langchain-compatible LLM
+    retriever=retriever,         # langchain-compatible retriever
+    chain_type="stuff",          # "stuff", "map_reduce", "refine" 중 선택
+    )   
+    return rag_chain
