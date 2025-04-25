@@ -20,6 +20,7 @@ def chat_with_api(message, history):
 
         response.raise_for_status()
         result = response.json().get("response", "⚠️ 응답을 불러오지 못했습니다.")
+        # result = response.json().get("response")
     except Exception as e:
         result = f"❌ 에러 발생: {str(e)}"
 

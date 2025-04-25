@@ -1,7 +1,8 @@
-from langchain_community.vectorstores import ElasticsearchStore
-from langchain_community.embeddings import HuggingFaceEmbeddings
+# from langchain_community.vectorstores import ElasticsearchStore
+from langchain_elasticsearch import ElasticsearchStore
+# from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from utils.config import ELASTICSEARCH_URL, EMBEDDING_MODEL_PATH, EMBEDDING_MODEL_CACHE_DIR
-import os
 
 def get_vector_store():
     """
