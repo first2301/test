@@ -10,4 +10,6 @@ faiss-cpu
 unstructured[all-docs]
 langchain_huggingface
 langchain-elasticsearch
+langsmith
+guidance
 #streamlit-chat
