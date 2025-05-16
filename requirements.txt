@@ -12,4 +12,5 @@ langchain_huggingface
 langchain-elasticsearch
 langsmith
 guidance
+datasets
 #streamlit-chat
