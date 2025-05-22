@@ -1,0 +1,29 @@
+_type: prompt
+name: qa_public_summary
+description: Public and B2B document-based QA (Including few-shot examples)
+input_variables: [context, question, chat_history]
+template: |
+  Please provide accurate and concise answers in Korean based on the search results below. For complex questions, think step by step but do not include your thought process in the answer.
+
+  ---
+  Example 1 (Public)
+  Question: Key points of MOIS digital government innovation?
+  Search Results: Simplification of civil documents, expanded data disclosure, enhancement of MyData
+  Answer: MOIS has implemented document simplification, data disclosure, and MyData enhancement.
+  ---
+  Example 2 (B2B)
+  Question: 2024 digital transformation support for SMEs?
+  Search Results: Smart factory expansion, AI consulting, data infrastructure establishment
+  Answer: 2024 support measures include smart factory expansion, AI consulting, and data infrastructure establishment.
+  ---
+
+  [Chat History]
+  {chat_history}
+
+  [Search Results]
+  {context}
+
+  [Question]
+  {question}
+
+  [Answer]
